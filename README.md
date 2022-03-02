@@ -39,9 +39,23 @@ x = :ok
 ```
 
 
+ ```elixir
+defmodule Math do
+  def sum_list(list, accumulator \\ 0)
+
+  def sum_list([head | tail], accumulator) do
+    sum_list(tail, head + accumulator)
+  end
+
+  def sum_list([], accumulator) do
+    accumulator
+  end
+end
 
 
-
-
-
+Math.sum_list([1, 2, 3])
+6
+Math.sum_list([1, 2, 3], 1)
+7
+```
 
